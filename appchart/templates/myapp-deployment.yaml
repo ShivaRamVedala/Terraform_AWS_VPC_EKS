@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app-deployment
+  labels:
+    app: my-app
+  namespace: mini-finance-app
+spec:
+  replicas: 2  # Number of pods (can be adjusted based on your needs)
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: my-app
+        image: 988168502171.dkr.ecr.us-west-1.amazonaws.com/finance_app:latest #replace your docker 
+        ports:
+        - containerPort: 80

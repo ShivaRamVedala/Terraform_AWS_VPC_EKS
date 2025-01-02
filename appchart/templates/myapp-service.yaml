@@ -1,0 +1,15 @@
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-app-service
+  namespace: mini-finance-app
+spec:
+  selector:
+    app: my-app  # Should match the labels in your deployment
+  ports:
+    - protocol: TCP
+      port: 80       # Port exposed within the cluster
+      targetPort: 80  # Port your container is listening on
+  type: LoadBalancer  # Create a load balancer to expose the service externally
+
